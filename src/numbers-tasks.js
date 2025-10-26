@@ -209,13 +209,14 @@ function roundToPowerOfTen(num, pow) {
  
 function isPrime(n) {
   if (n <= 1) return false; // числа меньше или равные 1 не простые
-  if (n === 2) return true; // 2 — самое маленькое простое число
-  if (n % 2 === 0) return false; // все чётные числа > 2 не простые
+  if (n === 2) return true; // 2 — простое число
+  if (n % 2 === 0) return false; // все чётные > 2 не простые
 
   const sqrtN = Math.sqrt(n);
   for (let i = 3; i <= sqrtN; i += 2) {
     if (n % i === 0) return false; // делится на i, значит не простое
   }
+  return true; // если делителей не найдено, число простое
 }
 
 /**
@@ -661,16 +662,10 @@ function getRandomInteger(min, max) {
  * 10 => 5
  * 15 => 8
  
-function isPrime(n) {
-  if (n <= 1) return false; // числа меньше или равные 1 не простые
-  if (n === 2) return true; // 2 — простое число
-  if (n % 2 === 0) return false; // все чётные > 2 не простые
-
-  const sqrtN = Math.sqrt(n);
-  for (let i = 3; i <= sqrtN; i += 2) {
-    if (n % i === 0) return false; // делится на i, значит не простое
-  }
-  return true; // если делителей не найдено, число простое
+ffunction getCountOfOddNumbers(number) {
+  const n = Math.trunc(number);
+  if (n <= 0) return 0; // для нуля и отрицательных чисел
+  return Math.floor((n + 1) / 2);
 }
 
 module.exports = {
