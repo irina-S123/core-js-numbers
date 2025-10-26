@@ -116,7 +116,6 @@ function getLinearEquationRoot(a, b) {
   const dotProduct = x1 * x2 + y1 * y2;
   const magnitude1 = Math.sqrt(x1 * x1 + y1 * y1);
   const magnitude2 = Math.sqrt(x2 * x2 + y2 * y2);
-  // Чтобы избежать ошибок из-за погрешности, ограничим значение перед arccos
   const cosTheta = dotProduct / (magnitude1 * magnitude2);
   const clampedCosTheta = Math.min(1, Math.max(-1, cosTheta));
   return Math.acos(clampedCosTheta);
@@ -236,7 +235,7 @@ function isPrime(n) {
  
 function toNumber(value, def) {
   const num = Number(value);
-  // Проверяем, что преобразование дало число и оно не NaN
+  
   if (!isNaN(num)) {
     return num;
   }
@@ -311,7 +310,7 @@ function getSumToN(n) {
  *   5   => 5  // 5
  
 function getSumOfDigits(num) {
-  // Обрабатываем возможное отрицательное число, берём абсолютное значение
+ 
   const digits = Math.abs(num).toString();
   let sum = 0;
   
@@ -472,7 +471,7 @@ function isInteger(number) {
  
 function getFloatOnString(str) {
   const num = parseFloat(str);
-  // Проверяем, что результат не является NaN и что после числа осталось только невидимая часть строки
+  
   if (!isNaN(num)) {
     // Проверяем, что str действительно начинается с числа
     // и после числа не идут лишние символы, мешающие parseFloat
@@ -704,4 +703,4 @@ module.exports = {
   getRandomInteger,
   getHypotenuse,
   getCountOfOddNumbers,
-};
+}
