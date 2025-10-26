@@ -9,80 +9,80 @@
 
 
  /**Returns an area of a rectangle given by width and height.
- *
- *@param {number} width
- *@param {number} height
- *@return {number}
  
- *@example:
- * 5, 10 => 50
- * 5, 5  => 25
- */
+ @param {number} width
+ @param {number} height
+ @return {number}
+ 
+ @example:
+  5, 10 => 50
+  5, 5  => 25
+ 
 function getRectangleArea(width, height) {
   return width * height;
 }
 
-/**
- * Returns a circumference of circle given by radius.
- *
- * @param {number} radius
- * @return {number}
- *
- * @example:
- *   5    => 31.41592653589793
- *   3.14 => 19.729201864543903
- *   0    => 0
- */
+
+ /**Returns a circumference of circle given by radius.
+ 
+  @param {number} radius
+  @return {number}
+ 
+  @example:
+    5    => 31.41592653589793
+    3.14 => 19.729201864543903
+    0    => 0
+ 
 function getCircleCircumference(radius) {
   return 2 * Math.PI * radius;
 }
 
-/**
- * Returns an average of two given numbers.
- *
- * @param {number} value1
- * @param {number} value2
- * @return {number}
- *
- * @example:
- *   5, 5  => 5
- *  10, 0  => 5
- *  -3, 3  => 0
- */
+
+ /**Returns an average of two given numbers.
+ 
+  @param {number} value1
+  @param {number} value2
+  @return {number}
+ 
+  @example:
+    5, 5  => 5
+   10, 0  => 5
+   -3, 3  => 0
+ 
 function getAverage(value1, value2) {
   return (value1 + value2) / 2;
 }
 
-/**
- * Returns a distance between two points by cartesian coordinates.
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- * @return {number}
- *
- * @example:
- *   (0,0) (0,1)    => 1
- *   (0,0) (1,0)    => 1
- *   (-5,0) (10,-10) => 18.027756377319946
- */
+
+ /**  Returns a distance between two points by cartesian coordinates.
+ 
+  @param {number} x1
+  @param {number} y1
+  @param {number} x2
+  @param {number} y2
+  @return {number}
+ 
+  @example:
+    (0,0) (0,1)    => 1
+    (0,0) (1,0)    => 1
+    (-5,0) (10,-10) => 18.027756377319946
+ 
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
 
-/**
- * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
- *
- * @param {number} a
- * @param {number} b
- * @return {number}
- *
- * @example:
- *   5*x - 10 = 0    => 2
- *   x + 8 = 0       => -8
- *   5*x = 0         => 0
- */
+
+ /**Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
+ 
+  @param {number} a
+  @param {number} b
+  @return {number}
+ 
+  @example:
+    5*x - 10 = 0    => 2
+    x + 8 = 0       => -8
+    5*x = 0         => 0
+ 
 function getLinearEquationRoot(a, b) {
   if (a === 0) {
     if (b === 0) {
@@ -96,23 +96,22 @@ function getLinearEquationRoot(a, b) {
   return -b / a;
 }
 
-/**
- * Returns an angle (in radians) between two vectors given by xi and yi,
- * coordinates in Cartesian plane.
- * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- * @return {number}
- *
- * @example:
- *   (1,0) (0,1)     => π/2
- *   (0,1) (0,-1)    => π
- *   (0,-1) (1,0)    => π/2
- *   (0,1) (0,1)     => 0
- */
+  /**Returns an angle (in radians) between two vectors given by xi and yi,
+  /**coordinates in Cartesian plane.
+  /**See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
+ 
+  @param {number} x1
+  @param {number} y1
+  @param {number} x2
+  @param {number} y2
+  @return {number}
+ 
+  @example:
+    (1,0) (0,1)     => π/2
+    (0,1) (0,-1)    => π
+    (0,-1) (1,0)    => π/2
+    (0,1) (0,1)     => 0
+ 
  function getAngleBetweenVectors(x1, y1, x2, y2) {
   const dotProduct = x1 * x2 + y1 * y2;
   const magnitude1 = Math.sqrt(x1 * x1 + y1 * y1);
@@ -124,51 +123,48 @@ function getLinearEquationRoot(a, b) {
 }
 
 
-/**
- * Returns a last digit of a integer number.
- * The input parameter will always be greater than or equal to zero and will be in decimal notation.
- *
- * @param {number} value
- * @return {number}
- *
- * @example:
- *   100     => 0
- *    37     => 7
- *     5     => 5
- *     0     => 0
- */
+/**Returns a last digit of a integer number.
+/**The input parameter will always be greater than or equal to zero and will be in decimal notation.
+ 
+  @param {number} value
+  @return {number}
+ 
+  @example:
+    100     => 0
+     37     => 7
+      5     => 5
+      0     => 0
+ 
 function getLastDigit(value) {
   return value % 10;
 }
 
-/**
- * Returns a number by given string representation.
- *
- * @param {string} value
- * @return {number}
- *
- * @example:
- *    '100'     => 100
- *     '37'     => 37
- * '-525.5'     => -525.5
- */
+/**Returns a number by given string representation.
+ 
+  @param {string} value
+  @return {number}
+ 
+  @example:
+     '100'     => 100
+      '37'     => 37
+  '-525.5'     => -525.5
+ 
 function parseNumberFromString(value) {
   return Number(value);
 }
 
-/**
- * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
- *
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @return {number}
- *
- * @example:
- *   1,1,1   => 1.7320508075688772
- *   3,3,3   => 5.196152422706632
- *   1,2,3   => 3.741657386773941
- */
+/**Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
+ 
+  @param {number} a
+  @param {number} b
+  @param {number} c
+  @return {number}
+ 
+  @example:
+    1,1,1   => 1.7320508075688772
+    3,3,3   => 5.196152422706632
+    1,2,3   => 3.741657386773941
+ 
 function getParallelepipedDiagonal(a, b, c) {
   return Math.sqrt(a * a + b * b + c * c);
 }
@@ -189,7 +185,7 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 1  => 1680
  *   1678, 2  => 1700
  *   1678, 3  => 2000
- */
+ 
 function roundToPowerOfTen(num, pow) {
   const factor = Math.pow(10, pow);
   return Math.round(num / factor) * factor;
@@ -211,7 +207,7 @@ function roundToPowerOfTen(num, pow) {
  *   12 => false
  *   16 => false
  *   17 => true
- */
+ 
 function isPrime(n) {
   if (n <= 1) return false; // числа меньше или равные 1 не простые
   if (n === 2) return true; // 2 — самое маленькое простое число
@@ -237,7 +233,7 @@ function isPrime(n) {
  *   toNumber('1', 0) => 1
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
- */
+ 
 function toNumber(value, def) {
   const num = Number(value);
   // Проверяем, что преобразование дало число и оно не NaN
@@ -257,7 +253,7 @@ function toNumber(value, def) {
  *   3  => 27
  *   -2 => -8
  *   0  => 0
- */
+ 
 function getCube(num) {
   return num * num * num;
 }
@@ -274,7 +270,7 @@ function getCube(num) {
  *   2  => 1
  *   3  => 2
  *   10 => 55
- */
+ 
 function getFibonacciNumber(index) {
   if (index === 0) return 0;
   if (index === 1) return 1;
@@ -298,7 +294,7 @@ function getFibonacciNumber(index) {
  *   5  => 15 // (1+2+3+4+5)
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
- */
+ 
 function getSumToN(n) {
   return n * (n + 1) / 2;
 }
@@ -313,7 +309,7 @@ function getSumToN(n) {
  *   123 => 6  // (1+2+3)
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
- */
+ 
 function getSumOfDigits(num) {
   // Обрабатываем возможное отрицательное число, берём абсолютное значение
   const digits = Math.abs(num).toString();
@@ -336,7 +332,7 @@ function getSumOfDigits(num) {
  *   4   => true
  *   16  => true
  *   15  => false
- */
+ 
 function isPowerOfTwo(num) {
   if (num <= 0) return false;
   return (num & (num - 1)) === 0;
@@ -351,7 +347,7 @@ function isPowerOfTwo(num) {
  * @example:
  *   0 => 0
  *   Math.PI / 2 => 1
- */
+ 
 function getSine(num) {
   return Math.sin(num);
 }
@@ -366,7 +362,7 @@ function getSine(num) {
  * @example:
  * 255, 16 => 'ff'
  * 2, 2    => '10'
- */
+ 
 function numberToStringInBase(number, base) {
   return number.toString(base);
 }
@@ -380,7 +376,7 @@ function numberToStringInBase(number, base) {
  *
  * @example:
  * 12345, 2    => '1.23e+4'
- */
+ 
 function toExponential(number, fractionDigits) {
   return number.toExponential(fractionDigits);
 }
@@ -395,7 +391,7 @@ function toExponential(number, fractionDigits) {
  * @example:
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
- */
+ 
 function toFixed(number, fractionDigits) {
   return number.toFixed(fractionDigits);
 }
@@ -411,7 +407,7 @@ function toFixed(number, fractionDigits) {
  * @example:
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
- */
+ 
 function toPrecision(number, precision) {
   return number.toPrecision(precision);
 }
@@ -425,7 +421,7 @@ function toPrecision(number, precision) {
  * @example:
  * new Number(5) => 5
  * Number(-5)    => -5
- */
+ 
 function getNumberValue(number) {
   return Number(number);
 }
@@ -444,7 +440,7 @@ function getNumberValue(number) {
  * 'a'      => false
  * 5        => true
  * '5'      => false
- */
+ 
 function isNumber(number) {
   return typeof number === 'number' && isFinite(number) && !isNaN(number);
 }
@@ -459,7 +455,7 @@ function isNumber(number) {
  * 5    => true
  * 5.1  => false
  * '5'  => false
- */
+ 
 function isInteger(number) {
   return typeof number === 'number' && Number.isInteger(number);
 }
@@ -473,7 +469,7 @@ function isInteger(number) {
  * @example:
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
- */
+ 
 function getFloatOnString(str) {
   const num = parseFloat(str);
   // Проверяем, что результат не является NaN и что после числа осталось только невидимая часть строки
@@ -489,27 +485,21 @@ function getFloatOnString(str) {
   return NaN;
 }
 
-/**
- * Returns an integer of the specified base or, if the number cannot be parsed
- * from the argument, returns NaN.
- *
- * @param {string} str
- * @param {number} base
- * @return {number | NaN}
- *
- * @example:
- * '4.567abcdefgh', 10  => 4
- * 'abcdefgh', 10       => NaN
- * '1.234', 2           => 1
- * '10', 8              => 8
- */
+//Returns an integer of the specified base or, if the number cannot be parsed
+  from the argument, returns NaN.
+ 
+  @param {string} str
+  @param {number} base
+  @return {number | NaN}
+ 
+  @example:
+  '4.567abcdefgh', 10  => 4
+  'abcdefgh', 10       => NaN
+  '1.234', 2           => 1
+  '10', 8              => 8
+ 
 function getIntegerOnString(str, base) {
-  // Удаляем ведущие и конечные пробелы
-  str = str.trim();
-
-  // Используем регулярное выражение, чтобы найти целую часть числа в начале строки
-  // с возможным знаком и без дробной части
-  const regex = /^([+-]?[0-9A-Fa-f]+).*/;
+  
   const match = str.match(regex);
 
   if (match) {
@@ -523,6 +513,7 @@ function getIntegerOnString(str, base) {
   return NaN;
 }
 
+
 /**
  * Returns whether a number is a safe integer.
  *
@@ -533,7 +524,7 @@ function getIntegerOnString(str, base) {
  * 10       => true
  * 3.5      => false
  * 2 ** 53  => false
- */
+ 
 function isSafeInteger(number) {
   return Number.isInteger(number) && Math.abs(number) <= Number.MAX_SAFE_INTEGER;
 }
@@ -547,7 +538,7 @@ function isSafeInteger(number) {
  * @example:
  * 5.9  => 5
  * -5.1 => -6
- */
+ 
 function roundToSmallestInteger(number) {
   return Math.floor(number);
 }
@@ -561,7 +552,7 @@ function roundToSmallestInteger(number) {
  * @example:
  * 5.1  => 6
  * -5.9 => -5
- */
+ 
 function roundToLargestInteger(number) {
   return Math.ceil(number);
 }
@@ -576,7 +567,7 @@ function roundToLargestInteger(number) {
  * 5.5  => 6
  * 5.4  => 5
  * -5.5 => -5
- */
+ 
 function roundToNearestInteger(number) {
   return Math.round(number);
 }
@@ -591,7 +582,7 @@ function roundToNearestInteger(number) {
  * 5.5  => 5
  * 5.4  => 5
  * -5.5 => -5
- */
+ 
 function getIntegerPartNumber(number) {
   return Math.trunc(number);
 }
@@ -607,7 +598,7 @@ function getIntegerPartNumber(number) {
  * @example:
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
- */
+ 
 function getSumOfNumbers(x1, x2, x3) {
   return x1 + x2 + x3;
 }
@@ -623,7 +614,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 1, 2   => 2
  * -5, -6 => -5
  * 0, 5   => 5
- */
+ 
 function getMaxNumber(firstNumber, secondNumber) {
   return firstNumber > secondNumber ? firstNumber : secondNumber;
 }
@@ -639,7 +630,7 @@ function getMaxNumber(firstNumber, secondNumber) {
  * 1, 2  => 1 | 2
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
- */
+ 
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -653,12 +644,10 @@ function getRandomInteger(min, max) {
  *
  * @example:
  * 3, 4 => 5
- */
+ 
  function getHypotenuse(a, b) {
   return Math.sqrt(a * a + b * b);
 } 
-
-
 
 /**
  * Returns count of odd numbers from zero to the resulting number.
@@ -672,7 +661,7 @@ function getRandomInteger(min, max) {
  * 5  => 3
  * 10 => 5
  * 15 => 8
- */
+ 
 function getCountOfOddNumbers(number) {
   return Math.floor((number + 1) / 2);
 }
