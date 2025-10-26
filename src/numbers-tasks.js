@@ -662,7 +662,8 @@ function getRandomInteger(min, max) {
  * 15 => 8
  
 function getCountOfOddNumbers(number) {
-  return Math.floor((number + 1) / 2);
+  const n = Math.floor(number); // приводим к целому числу
+  return Math.floor((n + 1) / 2);
 }
 
 module.exports = {
