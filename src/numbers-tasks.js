@@ -706,4 +706,4 @@ module.exports = {
   getRandomInteger,
   getHypotenuse,
   getCountOfOddNumbers,
-};
+};*/
