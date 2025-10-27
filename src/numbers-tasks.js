@@ -514,7 +514,7 @@ function getMaxNumber(firstNumber, secondNumber) {
   @return {number}
  
   @example:
-  3, 4 => 5
+  3,4 => 5
  
  function getHypotenuse(a, b) {
   return Math.sqrt(a * a + b * b);
@@ -572,6 +572,7 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
 
