@@ -86,17 +86,24 @@ function getLinearEquationRoot(a, b) {
     (0,-1) (1,0)    => π/2
     (0,1) (0,1)     => 0
  
- function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const dotProduct = x1 * x2 + y1 * y2;
-  const magnitude1 = Math.hypot(x1, y1);
-  const magnitude2 = Math.hypot(x2, y2);
-  // Для предотвращения деления на ноль добавим проверку
-  if (magnitude1 === 0 || magnitude2 === 0) {
-    return null; // или выбросить ошибку, если векторы нулевые
-  }
-  let angleInRadians = Math.acos(dotProduct / (magnitude1 * magnitude2));
-  // Переводим радианы в градусы
-  let angleInDegrees = angleInRadians * (180 / Math.PI);
+ function getAngleBetweenVectors(vector1, vector2) {
+  // Вычисляем скалярное произведение
+  const dotProduct = vector1.x * vector2.x + vector1.y * vector2.y + vector1.z * vector2.z;
+  
+  // Находим длины (модули) векторов
+  const magnitude1 = Math.sqrt(vector1.x**2 + vector1.y**2 + vector1.z**2);
+  const magnitude2 = Math.sqrt(vector2.x**2 + vector2.y**2 + vector2.z**2);
+  
+  // Для избежания ошибок из-за погрешностей ограничиваем значение
+  let ratio = dotProduct / (magnitude1 * magnitude2);
+  ratio = Math.min(Math.max(ratio, -1), 1);
+  
+  // Вычисляем угол в радианах
+  const angleInRadians = Math.acos(ratio);
+  
+  // Если нужен угол в градусах, умножьте на (180/Math.PI)
+  const angleInDegrees = angleInRadians * (180 / Math.PI);
+  
   return angleInDegrees;
 }
 
@@ -576,6 +583,7 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
 
