@@ -1,14 +1,4 @@
-/* *******************************************************************************************
- *                                                                                           *
- * Please read the following tutorial before implementing tasks:                              *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates           *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number   *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math     *
- *                                                                                           *
- ******************************************************************************************* */
 
-
- /**Returns an area of a rectangle given by width and height.
  
  @param {number} width
  @param {number} height
@@ -23,8 +13,7 @@ function getRectangleArea(width, height) {
 }
 
 
- //Returns a circumference of circle given by radius.
- 
+  
   @param {number} radius
   @return {number}
  
@@ -38,7 +27,7 @@ function getCircleCircumference(radius) {
 }
 
 
- //Returns an average of two given numbers.
+ 
  
   @param {number} value1
   @param {number} value2
@@ -54,8 +43,7 @@ function getAverage(value1, value2) {
 }
 
 
- //  Returns a distance between two points by cartesian coordinates.
- 
+
   @param {number} x1
   @param {number} y1
   @param {number} x2
@@ -72,8 +60,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
 }
 
 
- //Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
- 
+  
   @param {number} a
   @param {number} b
   @return {number}
@@ -86,19 +73,17 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
 function getLinearEquationRoot(a, b) {
   if (a === 0) {
     if (b === 0) {
-      // Уравнение 0*x + 0 = 0 имеет бесконечно много решений
-      return NaN; // Или можно обработать иначе
+      
+      return NaN; 
     } else {
-      // Уравнение 0*x + b = 0, где b ≠ 0, решений нет
+     
       return NaN;
     }
   }
   return -b / a;
 }
 
-  //Returns an angle (in radians) between two vectors given by xi and yi,
-  //coordinates in Cartesian plane.
-  //See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
+ 
  
   @param {number} x1
   @param {number} y1
@@ -122,8 +107,7 @@ function getLinearEquationRoot(a, b) {
 }
 
 
-//Returns a last digit of a integer number.
-//The input parameter will always be greater than or equal to zero and will be in decimal notation.
+
  
   @param {number} value
   @return {number}
@@ -138,7 +122,7 @@ function getLastDigit(value) {
   return value % 10;
 }
 
-//Returns a number by given string representation.
+
  
   @param {string} value
   @return {number}
@@ -152,7 +136,7 @@ function parseNumberFromString(value) {
   return Number(value);
 }
 
-//Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
+
  
   @param {number} a
   @param {number} b
@@ -168,7 +152,7 @@ function getParallelepipedDiagonal(a, b, c) {
   return Math.sqrt(a * a + b * b + c * c);
 }
 
-// Returns the number rounded to specified power of 10.
+
  
   @param {number} num
   @param {number} pow
@@ -189,8 +173,7 @@ function roundToPowerOfTen(num, pow) {
   return Math.round(num / factor) * factor;
 }
 
-//Returns true is the number is prime; otherwise false.
- //See: https://en.wikipedia.org/wiki/Primality_test
+
  
   @param {number} n
   @return {boolean}
@@ -217,8 +200,7 @@ function roundToPowerOfTen(num, pow) {
     return true; 
   }
 
-//Tries to convert value to number and returns it if conversion was successful;
- //otherwise returns default value passed as a second argument.
+
  
   @param {any} value
   @param {any} def
@@ -240,7 +222,7 @@ function toNumber(value, def) {
   return def;
 }
 
-//Returns the cube of the given number.
+
  
   @param {number} num
   @return {number}
@@ -254,7 +236,7 @@ function getCube(num) {
   return num * num * num;
 }
 
-//Returns the Fibonacci number located at the index position.
+
  
   @param {number} index
   @return {number}
@@ -279,7 +261,7 @@ function getFibonacciNumber(index) {
   return curr;
 }
 
-//  Returns the sum of all numbers from 1 to n.
+
  
   @param {number} n
   @return {number}
@@ -293,7 +275,7 @@ function getSumToN(n) {
   return n * (n + 1) / 2;
 }
 
-// Returns the sum of the digits of a given number.
+
  
   @param {number} num
   @return {number}
@@ -315,7 +297,7 @@ function getSumOfDigits(num) {
   return sum;
 }
 
-// Returns true if the given number is a power of two, false otherwise.
+
  
   @param {number} num
   @return {boolean}
@@ -330,7 +312,7 @@ function isPowerOfTwo(num) {
   return (num & (num - 1)) === 0;
 }
 
-// Returns the sine of a number.
+
  
   @param {number} num
   @return {number}
@@ -343,7 +325,7 @@ function getSine(num) {
   return Math.sin(num);
 }
 
-// Returns a string representation of a number in a specified base (radix).
+
  
   @param {number} number
   @param {number} base
@@ -357,7 +339,7 @@ function numberToStringInBase(number, base) {
   return number.toString(base);
 }
 
-// Returns a string representation of a number in exponential notation.
+
  
   @param {number} number
   @param {number} fractionDigits
@@ -370,7 +352,7 @@ function toExponential(number, fractionDigits) {
   return number.toExponential(fractionDigits);
 }
 
-// Returns a string representation of a number in fixed-point notation.
+
  
   @param {number} number
   @param {number} fractionDigits
@@ -384,8 +366,7 @@ function toFixed(number, fractionDigits) {
   return number.toFixed(fractionDigits);
 }
 
-// Returns a string representation of a number in normal (fixed-point or exponential)
-  notation rounded to precision significant digits.
+
  
   @param {number} number
   @param {number} precision
@@ -399,7 +380,6 @@ function toPrecision(number, precision) {
   return number.toPrecision(precision);
 }
 
-// Returns the primitive value of a Number object.
  
   @param {number} number
   @return {number}
@@ -412,7 +392,7 @@ function getNumberValue(number) {
   return Number(number);
 }
 
-// Returns a boolean value indicating whether the parameter is a number or not.
+
  
   @param {number} number
   @return {boolean}
@@ -430,7 +410,7 @@ function isNumber(number) {
   return typeof number === 'number' && isFinite(number) && !isNaN(number);
 }
 
-// Returns a boolean value indicating whether a number is an integer or not.
+
  
   @param {number} number
   @return {boolean}
@@ -444,7 +424,7 @@ function isInteger(number) {
   return typeof number === 'number' && Number.isInteger(number);
 }
 
-//Returns a floating point number or, if the number cannot be parsed from the argument, returns NaN.
+
  
   @param {string} str
   @return {number | NaN}
@@ -457,8 +437,7 @@ function getFloatOnString(str) {
   const num = parseFloat(str);
   
   if (!isNaN(num)) {
-    // Проверяем, что str действительно начинается с числа
-    // и после числа не идут лишние символы, мешающие parseFloat
+    
     const regex = /^ *[+-]?(\d*\.?\d+)(e[+-]?\d+)?/i;
     const match = str.match(regex);
     if (match) {
@@ -468,7 +447,7 @@ function getFloatOnString(str) {
   return NaN;
 }
 
-//Returns an integer of the specified base or, if the number cannot be parsed
+
   from the argument, returns NaN.
  
   @param {string} str
@@ -497,8 +476,6 @@ function getIntegerOnString(str, base) {
 }
 
 
-// Returns whether a number is a safe integer.
- 
   @param {number} number
   @return {boolean}
  
@@ -511,8 +488,7 @@ function isSafeInteger(number) {
   return Number.isInteger(number) && Math.abs(number) <= Number.MAX_SAFE_INTEGER;
 }
 
-// Returns the smallest integer less than or equal to a given number.
- 
+
   @param {number} number
   @return {number}
  
@@ -524,7 +500,6 @@ function roundToSmallestInteger(number) {
   return Math.floor(number);
 }
 
-// Returns the largest integer greater than or equal to a given number.
 
   @param {number} number
   @return {number}
@@ -537,7 +512,6 @@ function roundToLargestInteger(number) {
   return Math.ceil(number);
 }
 
-// Returns the value of a number rounded to the nearest integer.
  
   @param {number} number
   @return {number}
@@ -551,7 +525,6 @@ function roundToNearestInteger(number) {
   return Math.round(number);
 }
 
-// Returns the integer part of a number by removing any fractional digits.
  
   @param {number} number
   @return {number}
@@ -565,7 +538,6 @@ function getIntegerPartNumber(number) {
   return Math.trunc(number);
 }
 
-// Returns the sum of numbers.
  
   @param {number} x1
   @param {number} x2
@@ -580,7 +552,6 @@ function getSumOfNumbers(x1, x2, x3) {
   return x1 + x2 + x3;
 }
 
-// Returns the largest number.
  
   @param {number} firstNumber
   @param {number} secondNumber
@@ -595,8 +566,7 @@ function getMaxNumber(firstNumber, secondNumber) {
   return firstNumber > secondNumber ? firstNumber : secondNumber;
 }
 
-// Returns a random integer in the range from min to max.
- 
+
   @param {number} min
   @param {number} max
   @return {number}
@@ -610,7 +580,6 @@ function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Returns the length of the hypotenuse of a right triangle.
  
   @param {number} a
   @param {number} b
@@ -623,9 +592,7 @@ function getRandomInteger(min, max) {
   return Math.sqrt(a * a + b * b);
 } 
 
-// Returns count of odd numbers from zero to the resulting number.
-  The resulting number is taken into account.
- 
+  
   @param {number} number
   @return {number}
  
@@ -678,4 +645,4 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 };
-*/
+
