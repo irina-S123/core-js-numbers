@@ -87,14 +87,17 @@ function getLinearEquationRoot(a, b) {
     (0,1) (0,1)     => 0
  
  function getAngleBetweenVectors(x1, y1, x2, y2) {
-    const dotProduct = x1 * x2 + y1 * y2;
-    const magnitudeA = Math.sqrt(x1 * x1 + y1 * y1);
-    const magnitudeB = Math.sqrt(x2 * x2 + y2 * y2);
-    
-    const cosTheta = dotProduct / (magnitudeA * magnitudeB);
-    const angle = Math.acos(cosTheta);
-    
-    return angle;
+  const dotProduct = x1 * x2 + y1 * y2;
+  const magnitude1 = Math.hypot(x1, y1);
+  const magnitude2 = Math.hypot(x2, y2);
+  // Для предотвращения деления на ноль добавим проверку
+  if (magnitude1 === 0 || magnitude2 === 0) {
+    return null; // или выбросить ошибку, если векторы нулевые
+  }
+  let angleInRadians = Math.acos(dotProduct / (magnitude1 * magnitude2));
+  // Переводим радианы в градусы
+  let angleInDegrees = angleInRadians * (180 / Math.PI);
+  return angleInDegrees;
 }
 
  
@@ -573,6 +576,7 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
 
