@@ -1,5 +1,3 @@
-
- 
  @param {number} width
  @param {number} height
  @return {number}
@@ -11,9 +9,7 @@
 function getRectangleArea(width, height) {
   return width * height;
 }
-
-
-  
+ 
   @param {number} radius
   @return {number}
  
@@ -26,8 +22,6 @@ function getCircleCircumference(radius) {
   return 2 * Math.PI * radius;
 }
 
-
- 
  
   @param {number} value1
   @param {number} value2
@@ -41,8 +35,6 @@ function getCircleCircumference(radius) {
 function getAverage(value1, value2) {
   return (value1 + value2) / 2;
 }
-
-
 
   @param {number} x1
   @param {number} y1
@@ -58,8 +50,6 @@ function getAverage(value1, value2) {
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
-
-
   
   @param {number} a
   @param {number} b
@@ -82,8 +72,6 @@ function getLinearEquationRoot(a, b) {
   }
   return -b / a;
 }
-
- 
  
   @param {number} x1
   @param {number} y1
@@ -98,15 +86,15 @@ function getLinearEquationRoot(a, b) {
     (0,1) (0,1)     => 0
  
  function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const dotProduct = x1 * x2 + y1 * y2;
-  const magnitude1 = Math.sqrt(x1 * x1 + y1 * y1);
-  const magnitude2 = Math.sqrt(x2 * x2 + y2 * y2);
-  const cosTheta = dotProduct / (magnitude1 * magnitude2);
-  const clampedCosTheta = Math.min(1, Math.max(-1, cosTheta));
-  return Math.acos(clampedCosTheta);
+    const dotProduct = x1 * x2 + y1 * y2;
+    const magnitudeA = Math.sqrt(x1 * x1 + y1 * y1);
+    const magnitudeB = Math.sqrt(x2 * x2 + y2 * y2);
+    
+    const cosTheta = dotProduct / (magnitudeA * magnitudeB);
+    const angle = Math.acos(cosTheta);
+    
+    return angle;
 }
-
-
 
  
   @param {number} value
@@ -119,13 +107,11 @@ function getLinearEquationRoot(a, b) {
       0     => 0
  
 function getLastDigit(value) {
-  return value % 10;
+    return Math.abs(value) % 10;
 }
 
-
- 
-  @param {string} value
-  @return {number}
+   @param {string} value
+   @return {number}
  
   @example:
      '100'     => 100
@@ -133,27 +119,28 @@ function getLastDigit(value) {
   '-525.5'     => -525.5
  
 function parseNumberFromString(value) {
-  return Number(value);
+  return parseFloat(value);
 }
 
-
+   @param {number} a
+   @param {number} b
+   @param {number} c
+   @return {number}
  
-  @param {number} a
-  @param {number} b
-  @param {number} c
-  @return {number}
- 
-  @example:
+   @example:
     1,1,1   => 1.7320508075688772
     3,3,3   => 5.196152422706632
     1,2,3   => 3.741657386773941
  
 function getParallelepipedDiagonal(a, b, c) {
-  return Math.sqrt(a * a + b * b + c * c);
+    if (a <= 0 || b <= 0 || c <= 0 || isNaN(a) || isNaN(b) || isNaN(c)) {
+    return null; // Invalid dimensions
+  }
+  
+   return Math.sqrt(a * a + b * b + c * c);
 }
 
 
- 
   @param {number} num
   @param {number} pow
   @return {number}
@@ -169,12 +156,19 @@ function getParallelepipedDiagonal(a, b, c) {
     1678, 3  => 2000
  
 function roundToPowerOfTen(num, pow) {
+   if (!Number.isInteger(pow) || pow < 0) {
+    return null; // Invalid power
+  }
+  
+   if (isNaN(num)) {
+    return NaN;
+  }
+   
   const factor = Math.pow(10, pow);
+   
   return Math.round(num / factor) * factor;
 }
 
-
- 
   @param {number} n
   @return {boolean}
  
@@ -189,17 +183,16 @@ function roundToPowerOfTen(num, pow) {
     17 => true
  
  function isPrime(n) {
-    if (n <= 1) return false; 
-    if (n === 2) return true; 
-    if (n % 2 === 0) return false; 
-
-    const sqrtN = Math.sqrt(n);
-    for (let i = 3; i <= sqrtN; i += 2) {
-      if (n % i === 0) return false; 
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 === 0 || n % 3 === 0) return false;
+   
+    for (let i = 5; i * i <= n; i += 6) {
+        if (n % i === 0 || n % (i + 2) === 0) return false;
     }
-    return true; 
-  }
 
+    return true; 
+}
 
  
   @param {any} value
@@ -214,15 +207,9 @@ function roundToPowerOfTen(num, pow) {
     toNumber(new Number(42), 0) => 42
  
 function toNumber(value, def) {
-  const num = Number(value);
-  
-  if (!isNaN(num)) {
-    return num;
-  }
-  return def;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : def;
 }
-
-
  
   @param {number} num
   @return {number}
@@ -233,11 +220,9 @@ function toNumber(value, def) {
     0  => 0
  
 function getCube(num) {
-  return num * num * num;
+  return Math.pow(num, 3);
 }
 
-
- 
   @param {number} index
   @return {number}
  
@@ -249,16 +234,14 @@ function getCube(num) {
     10 => 55
  
 function getFibonacciNumber(index) {
-  if (index === 0) return 0;
-  if (index === 1) return 1;
-  
-  let prev = 0, curr = 1;
+  if (index <= 1) return index;
+  let a = 0, b = 1, sum;
   for (let i = 2; i <= index; i++) {
-    const next = prev + curr;
-    prev = curr;
-    curr = next;
+    sum = a + b;
+    a = b;
+    b = sum;
   }
-  return curr;
+  return b;
 }
 
 
@@ -296,7 +279,6 @@ function getSumOfDigits(num) {
   
   return sum;
 }
-
 
  
   @param {number} num
@@ -644,5 +626,6 @@ module.exports = {
   getRandomInteger,
   getHypotenuse,
   getCountOfOddNumbers,
-};
+}
+
 
