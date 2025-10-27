@@ -64,7 +64,7 @@ function getLinearEquationRoot(a, b) {
   if (a === 0) {
     if (b === 0) {
       
-      return NaN; 
+      return null; 
     } else {
      
       return NaN;
@@ -572,6 +572,7 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
 
