@@ -255,10 +255,8 @@ function getFibonacciNumber(index) {
     1  => 1
  
 function getSumToN(n) {
-  return n * (n + 1) / 2;
+  return (n * (n + 1)) / 2;
 }
-
-
  
   @param {number} num
   @return {number}
@@ -269,15 +267,10 @@ function getSumToN(n) {
     5   => 5  // 5
  
 function getSumOfDigits(num) {
- 
-  const digits = Math.abs(num).toString();
-  let sum = 0;
-  
-  for (let digit of digits) {
-    sum += Number(digit);
-  }
-  
-  return sum;
+  return num
+    .toString()
+    .split('')
+    .reduce((sum, digit) => sum + Number(digit), 0);
 }
 
  
@@ -290,11 +283,8 @@ function getSumOfDigits(num) {
     15  => false
  
 function isPowerOfTwo(num) {
-  if (num <= 0) return false;
-  return (num & (num - 1)) === 0;
+  return num > 0 && (num & (num - 1)) === 0;
 }
-
-
  
   @param {number} num
   @return {number}
@@ -307,8 +297,6 @@ function getSine(num) {
   return Math.sin(num);
 }
 
-
- 
   @param {number} number
   @param {number} base
   @return {string}
@@ -320,8 +308,6 @@ function getSine(num) {
 function numberToStringInBase(number, base) {
   return number.toString(base);
 }
-
-
  
   @param {number} number
   @param {number} fractionDigits
@@ -333,8 +319,6 @@ function numberToStringInBase(number, base) {
 function toExponential(number, fractionDigits) {
   return number.toExponential(fractionDigits);
 }
-
-
  
   @param {number} number
   @param {number} fractionDigits
@@ -347,8 +331,6 @@ function toExponential(number, fractionDigits) {
 function toFixed(number, fractionDigits) {
   return number.toFixed(fractionDigits);
 }
-
-
  
   @param {number} number
   @param {number} precision
@@ -359,10 +341,9 @@ function toFixed(number, fractionDigits) {
   12.345, 4   => '12.35'
  
 function toPrecision(number, precision) {
-  return number.toPrecision(precision);
+  return number.toFixed(precision);
 }
 
- 
   @param {number} number
   @return {number}
  
@@ -371,11 +352,9 @@ function toPrecision(number, precision) {
   Number(-5)    => -5
  
 function getNumberValue(number) {
-  return Number(number);
+  return +number;
 }
 
-
- 
   @param {number} number
   @return {boolean}
  
@@ -389,10 +368,8 @@ function getNumberValue(number) {
   '5'      => false
  
 function isNumber(number) {
-  return typeof number === 'number' && isFinite(number) && !isNaN(number);
+  return typeof number === 'number' && Number.isFinite(number);
 }
-
-
  
   @param {number} number
   @return {boolean}
@@ -403,11 +380,9 @@ function isNumber(number) {
   '5'  => false
  
 function isInteger(number) {
-  return typeof number === 'number' && Number.isInteger(number);
+  return Number.isInteger(number);
 }
 
-
- 
   @param {string} str
   @return {number | NaN}
  
@@ -416,22 +391,11 @@ function isInteger(number) {
   'abcdefgh'      => NaN
  
 function getFloatOnString(str) {
-  const num = parseFloat(str);
-  
-  if (!isNaN(num)) {
-    
-    const regex = /^ *[+-]?(\d*\.?\d+)(e[+-]?\d+)?/i;
-    const match = str.match(regex);
-    if (match) {
-      return num;
-    }
-  }
-  return NaN;
+  const match = str.match(/[-+]?\d*\.\d+/);
+  return match ? parseFloat(match[0]) : NaN;
 }
 
-
-  from the argument, returns NaN.
- 
+   
   @param {string} str
   @param {number} base
   @return {number | NaN}
@@ -443,20 +407,11 @@ function getFloatOnString(str) {
   '10', 8              => 8
  
 function getIntegerOnString(str, base) {
-  
-  const match = str.match(regex);
-
-  if (match) {
-    const numberStr = match[1];
-    const parsed = parseInt(numberStr, base);
-    // Проверяем, что parseInt вернул число (не NaN)
-    if (!isNaN(parsed)) {
-      return parsed;
-    }
-  }
-  return NaN;
+  const match = str.match(/[0-9]+/);
+  if (!match) return NaN;
+  const result = parseInt(match[0], base);
+  return isNaN(result) ? NaN : result;
 }
-
 
   @param {number} number
   @return {boolean}
@@ -467,9 +422,8 @@ function getIntegerOnString(str, base) {
   2 ** 53  => false
  
 function isSafeInteger(number) {
-  return Number.isInteger(number) && Math.abs(number) <= Number.MAX_SAFE_INTEGER;
+  return Number.isInteger(number) && Math.abs(number) <= Math.pow(2, 53) - 1;
 }
-
 
   @param {number} number
   @return {number}
@@ -482,7 +436,6 @@ function roundToSmallestInteger(number) {
   return Math.floor(number);
 }
 
-
   @param {number} number
   @return {number}
  
@@ -493,7 +446,6 @@ function roundToSmallestInteger(number) {
 function roundToLargestInteger(number) {
   return Math.ceil(number);
 }
-
  
   @param {number} number
   @return {number}
@@ -506,7 +458,6 @@ function roundToLargestInteger(number) {
 function roundToNearestInteger(number) {
   return Math.round(number);
 }
-
  
   @param {number} number
   @return {number}
@@ -520,8 +471,7 @@ function getIntegerPartNumber(number) {
   return Math.trunc(number);
 }
 
- 
-  @param {number} x1
+   @param {number} x1
   @param {number} x2
   @param {number} x3
   @returns {number}
@@ -534,7 +484,6 @@ function getSumOfNumbers(x1, x2, x3) {
   return x1 + x2 + x3;
 }
 
- 
   @param {number} firstNumber
   @param {number} secondNumber
   @return {number}
@@ -545,10 +494,8 @@ function getSumOfNumbers(x1, x2, x3) {
   0, 5   => 5
  
 function getMaxNumber(firstNumber, secondNumber) {
-  return firstNumber > secondNumber ? firstNumber : secondNumber;
+  return Math.max(firstNumber, secondNumber);
 }
-
-
   @param {number} min
   @param {number} max
   @return {number}
@@ -557,12 +504,11 @@ function getMaxNumber(firstNumber, secondNumber) {
   1, 2  => 1 | 2
   -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
   -1, 1 => -1 | 0 | 1
- 
-function getRandomInteger(min, max) {
+ function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
- 
+  {
   @param {number} a
   @param {number} b
   @return {number}
@@ -572,8 +518,7 @@ function getRandomInteger(min, max) {
  
  function getHypotenuse(a, b) {
   return Math.sqrt(a * a + b * b);
-} 
-
+}
   
   @param {number} number
   @return {number}
@@ -627,5 +572,6 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
