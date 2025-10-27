@@ -61,18 +61,19 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
     5*x = 0         => 0
  
 function getLinearEquationRoot(a, b) {
-  if (a === 0 && b === 0) {
-    // Уравнение 0x + 0 = 0 — решение любое число, то есть бесконечность решений.
-    // Можно вернуть null или специально обработать этот случай.
-    return null; // или возвращайте 'Infinity', если нужно.
-  } else if (a === 0) {
-    // Уравнение 0x + b = 0: либо решений нет, либо решений много.
-    // Если b !== 0, решений нет.
-    return NaN;
+  if (a === 0) {
+    if (b === 0) {
+      // Решение любого числа (бесконечное количество решений)
+      return Infinity; // или null, в зависимости от задачи
+    } else {
+      // Нет решений
+      return NaN;
+    }
   } else {
-    // Стандартное решение: x = -b / a
+    // Стандартное решение
     return -b / a;
   }
+}
  
   @param {number} x1
   @param {number} y1
@@ -144,11 +145,8 @@ function parseNumberFromString(value) {
     1,2,3   => 3.741657386773941
  
 function getParallelepipedDiagonal(a, b, c) {
-    if (a <= 0 || b <= 0 || c <= 0 || isNaN(a) || isNaN(b) || isNaN(c)) {
-    return null; // Invalid dimensions
-  }
-  
-   return Math.sqrt(a * a + b * b + c * c);
+  // Можно просто вернуть длину диагонали без проверок
+  return Math.sqrt(a * a + b * b + c * c);
 }
 
 
@@ -583,6 +581,7 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
 
