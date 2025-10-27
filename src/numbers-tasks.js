@@ -333,7 +333,7 @@ function toExponential(number, fractionDigits) {
   12.345, 1   => '12.3'
  
 function toFixed(number, fractionDigits) {
-  return number.toFixed(fractionDigits);
+  return Number(number.toFixed(fractionDigits));
 }
  
   @param {number} number
@@ -576,6 +576,7 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
 
