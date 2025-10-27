@@ -61,17 +61,18 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
     5*x = 0         => 0
  
 function getLinearEquationRoot(a, b) {
-  if (a === 0) {
-    if (b === 0) {
-      
-      return null; 
-    } else {
-     
-      return NaN;
-    }
+  if (a === 0 && b === 0) {
+    // Уравнение 0x + 0 = 0 — решение любое число, то есть бесконечность решений.
+    // Можно вернуть null или специально обработать этот случай.
+    return null; // или возвращайте 'Infinity', если нужно.
+  } else if (a === 0) {
+    // Уравнение 0x + b = 0: либо решений нет, либо решений много.
+    // Если b !== 0, решений нет.
+    return NaN;
+  } else {
+    // Стандартное решение: x = -b / a
+    return -b / a;
   }
-  return -b / a;
-}
  
   @param {number} x1
   @param {number} y1
@@ -572,6 +573,7 @@ module.exports = {
   getHypotenuse,
   getCountOfOddNumbers,
 }
+
 
 
 
